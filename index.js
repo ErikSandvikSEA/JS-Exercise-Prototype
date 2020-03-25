@@ -87,7 +87,8 @@ Car.prototype.fill = function (gallons) {
 Car.prototype.drive = function (distance) {
   this.odometer = this.odometer + distance;
   this.tank = this.tank - (distance / this.milesPerGallon);
-  if (this.tank*this.milesPerGallon >= distance) {
+  if (this.tank*this.milesPerGallon < distance) {
+    
     return `I ran out of fuel at ${this.odometer} miles!`
   }
 }
@@ -115,10 +116,13 @@ Baby.prototype.play = function () {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global Binding - if not specified in a scope, this refers to the window  or console object and will return all of javascript
+
+  2. Implicit Binding - when using a dot to call functions, whatever comes just before the dot is the this. 
+
+  3. New binding - when using constructors, this is the instance of the object that we're creating.
+
+  4. Explicit Binding - explicitly states what the this is. Used w/the call, apply, and bind methods. Call passes arguments in 1 by 1, apply passes arguments in as an array, bind passes in arguments one by one but doesn't invoke immediately, it also returns a new function that can be used later.
 */
 
 
